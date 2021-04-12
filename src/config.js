@@ -14,6 +14,8 @@ import autofocus from '@undecaf/vue-autofocus'
 import hotkey from '@undecaf/vue-hotkey'
 import store from '@/models/store'
 import routes from '@/routes'
+import VueAxios from 'vue-axios';
+import axios from 'axios';
 
 
 // Except for main.js, modules requiring Vue should import { Vue } from '@/config.js'
@@ -49,6 +51,7 @@ export default function options(vueClass) {
     vueClass.use(MdVuelidated)
     vueClass.use(autofocus)
     vueClass.use(hotkey)
+    vueClass.use(VueAxios, axios)
 
     const locale = vueClass.material.selectLocale(navigator.language, 'en')
 
