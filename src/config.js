@@ -15,6 +15,8 @@ import hotkey from '@undecaf/vue-hotkey'
 import store from '@/models/store'
 import routes from '@/routes'
 
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 // Except for main.js, modules requiring Vue should import { Vue } from '@/config.js'
 // so that unit tests and regular runtime have the same configuration
@@ -24,6 +26,8 @@ export default function options(vueClass) {
     Vue = vueClass
 
     vueClass.config.productionTip = false
+
+    Vue.use(VueAxios, axios)
 
     vueClass.$logger = vueClass.prototype.$logger = new Logger({
         // See https://github.com/felixpy/logger#logger
