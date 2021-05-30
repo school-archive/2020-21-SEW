@@ -13,15 +13,17 @@
     </md-app-toolbar>
 
     <md-app-content>
-      <router-view />
+      <wasserwaage :size="200"/>
     </md-app-content>
   </md-app>
 </template>
 
 <script>
+    import Wasserwaage from "@/components/Wasserwaage";
     export default {
         name: 'App',
         components: {
+          Wasserwaage
         },
     }
 </script>
