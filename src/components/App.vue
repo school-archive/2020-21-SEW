@@ -13,16 +13,39 @@
     </md-app-toolbar>
 
     <md-app-content>
-      <router-view />
+      <div class="md-layout">
+        <span>{{  }}</span>
+        <login
+        title="Anmelden bei Fakebook"
+        mail_ph="Email"
+        pass_ph="Passwort"
+        button_text="Anmelden"/>
+        <login
+        title="Anmelden bei Friendbook"
+        mail_ph=":) Email"
+        pass_ph=":) Passwort"
+        button_text="Ummelden"/>
+      </div>
     </md-app-content>
   </md-app>
 </template>
 
 <script>
+  import Login from "./Login";
     export default {
         name: 'App',
         components: {
+          Login
         },
+      mounted() {
+        this.$http.get('https://jsonplaceholder.typicode.com/posts/1').then(function(response){
+          if(response.status == "200"){
+            console.log(response.body);
+          }
+
+
+        })
+      }
     }
 </script>
 
