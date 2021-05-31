@@ -1,4 +1,3 @@
-import Logger from '@felixpy/logger/dist/logger'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
 import VueMaterial from 'vue-material'
@@ -14,43 +13,26 @@ import autofocus from '@undecaf/vue-autofocus'
 import hotkey from '@undecaf/vue-hotkey'
 import store from '@/models/store'
 import routes from '@/routes'
+import VueResource from 'vue-resource'
 
+console.log(store)
 
-// Except for main.js, modules requiring Vue should import { Vue } from '@/config.js'
-// so that unit tests and regular runtime have the same configuration
-export let Vue
+export default function options(vueProto) {
+    vueProto.config.productionTip = false
 
-export default function options(vueClass) {
-    Vue = vueClass
+    vueProto.use(VueRouter)
+    vueProto.use(Vuex)
+    vueProto.use(VueMaterial)
+    vueProto.use(VueMaterialLocales, [ de, en ])
+    vueProto.use(VueI18n)
+    vueProto.use(Vuelidate)
+    vueProto.use(MdModalDialog)
+    vueProto.use(MdVuelidated)
+    vueProto.use(autofocus)
+    vueProto.use(hotkey)
+    vueProto.use(VueResource)
 
-    vueClass.config.productionTip = false
-
-    vueClass.$logger = vueClass.prototype.$logger = new Logger({
-        // See https://github.com/felixpy/logger#logger
-        config: {
-            // Log priority: ALL, DEBUG, LOG, INFO, WARN, ERROR, OFF
-            level: 'LOG',
-
-            // Prefix pattern: %t=date, %p=priority, %c=logger name, %m=method name
-            prefix: '[%t] [%m]',
-
-            // Separator between prefix and messages
-            separator: '',
-        }
-    })
-
-    vueClass.use(VueRouter)
-    vueClass.use(Vuex)
-    vueClass.use(VueMaterial)
-    vueClass.use(VueMaterialLocales, [ de, en ])
-    vueClass.use(VueI18n)
-    vueClass.use(Vuelidate)
-    vueClass.use(MdModalDialog)
-    vueClass.use(MdVuelidated)
-    vueClass.use(autofocus)
-    vueClass.use(hotkey)
-
-    const locale = vueClass.material.selectLocale(navigator.language, 'en')
+    const locale = vueProto.material.selectLocale(navigator.language, 'en')
 
     return {
         router: new VueRouter({ routes }),
