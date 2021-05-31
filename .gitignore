@@ -2,7 +2,8 @@
 node_modules
 /dist
 
-# Local env files
+
+# local env files
 .env.local
 .env.*.local
 
@@ -20,10 +21,3 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
-# Test results
-/coverage
-/screenshots
-
-# Secrets
-secrets*.*
