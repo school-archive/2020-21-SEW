@@ -7,13 +7,20 @@ import { mount } from '@vue/test-utils'
 const config = options(Vue)
 
 
-describe('<app>', () => {
+/**
+ * Tests component methods and component UI
+ */
+describe('<app> component', () => {
     let wrapper
 
     beforeEach(() => {
         wrapper = mount(App, config)
     })
 
+
+    it('returns the correct answer()', () => {
+        expect(wrapper.vm.answer()).to.be.equal(42)
+    })
 
     it('renders the title', () => {
         const toolbar = wrapper.get('.md-toolbar')

@@ -4,7 +4,7 @@ module.exports = function(config) {
     config.set({
 
         // Base path for all patterns (eg. files, exclude)
-        basePath: '',
+        basePath: '../../../../Users/nilss/Downloads/vue-boilerplate-master/vue-boilerplate-master',
 
         // Test frameworks (https://npmjs.org/browse/keyword/karma-adapter)
         frameworks: ['mocha', 'chai'],
@@ -52,7 +52,14 @@ module.exports = function(config) {
         autoWatch: false,
 
         // Launch these browsers (https://npmjs.org/browse/keyword/karma-launcher)
-        browsers: ['ChromeHeadless', /*'ChromiumHeadless', 'FirefoxHeadless'*/],
+        browsers: [
+            // 'Chrome',
+            // 'Chromium',
+            // 'Firefox',
+            'ChromeHeadless',
+            // 'ChromiumHeadless',
+            // 'FirefoxHeadless',
+        ],
 
         // Exit after running the tests
         singleRun: true,
