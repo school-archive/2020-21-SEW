@@ -236,3 +236,4 @@ npm run test:e2e  # in Webstorm: run 'test:e2e'
 Software: [MIT](http://opensource.org/licenses/MIT)
 
 Documentation: [CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)
+![angabe](angabe.png) 
